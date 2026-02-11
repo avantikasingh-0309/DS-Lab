@@ -14,7 +14,7 @@ int main() {
         scanf("%d", &arr[i]);
     }
 
-    // Selection Sort
+    
     for(i = 0; i < n - 1; i++) {
         min = i;
 
@@ -24,13 +24,11 @@ int main() {
             }
         }
 
-        // Swap
         temp = arr[i];
         arr[i] = arr[min];
         arr[min] = temp;
     }
 
-    // Display sorted array
     printf("Sorted array:\n");
     for(i = 0; i < n; i++) {
         printf("%d ", arr[i]);
