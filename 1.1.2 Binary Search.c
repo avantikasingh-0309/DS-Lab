@@ -1,36 +1,38 @@
+
 #include <stdio.h>
 
 int main() {
-    int arr[100], n, key;
-    int low, high, mid;
+    int n, x;
 
-    printf("Enter number of elements: ");
     scanf("%d", &n);
 
-    printf("Value of a[%d]:\n", n);
+    int arr[n];
     for (int i = 0; i < n; i++) {
         scanf("%d", &arr[i]);
     }
 
-    printf("Enter element to search: ");
-    scanf("%d", &key);
+    scanf("%d", &x);
 
-    low = 0;
-    high = n - 1;
+    int left = 0, right = n - 1;
+    int result = -1;
 
-    while (low <= high) {
-        mid = (low + high) / 2;
+    while (left <= right) {
+        int mid = (left + right) / 2;
 
-        if (arr[mid] == key) {
-            printf("Element found at position %d\n", mid + 1);
-            return 0;
-        } else if (arr[mid] < key) {
-            low = mid + 1;
+        if (arr[mid] == x) {
+            result = mid;
+            break;
+        } else if (arr[mid] > x) {
+            right = mid - 1;
         } else {
-            high = mid - 1;
+            left = mid + 1;
         }
     }
 
-    printf("Element not found\n");
+    if (result != -1)
+        printf("Element found at index %d\n", result);
+    else
+        printf("Element not found\n");
+
     return 0;
 }
